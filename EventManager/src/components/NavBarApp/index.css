@@ -1,0 +1,60 @@
+/* Styles pour la navbar verticale fixe */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #0a2c4e;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.logout {
+    position: fixed;
+  bottom: 10px;
+}
+.menu{
+   margin-top: 30%;
+   text-align: left;
+}
+
+.navbar {
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 18px;
+  padding: 10px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.nav-link:hover {
+  background-color: #320755 ;
+  color: white;
+  border-radius: 10px;
+}
+.nav-link.active {
+  background-color: #320755 ;
+  color: white !important;
+  border-radius: 10px;
+}
+
+.navbar-brand h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: white ;
+}
+
+/* Ajouter du padding à gauche pour que le contenu ne touche pas la navbar */
+.content {
+  margin-left: 240px;
+  padding: 20px;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+}

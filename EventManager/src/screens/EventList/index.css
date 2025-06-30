@@ -1,0 +1,10 @@
+.pagination.bg-dark .page-link{
+  background-color: #212529 !important;
+  color: #fff !important;
+  border-color: #343a40 !important;
+}
+.pagination.bg-dark .page-item.active .page-link {
+    background-color: white!important;
+  color: #212529!important;
+  border-color: #343a40 !important;
+}
