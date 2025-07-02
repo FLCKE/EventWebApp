@@ -1,12 +1,44 @@
-# React + Vite
+# EventWebApp (EventManager)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application React pour la gestion et la visualisation d'événements.
 
-Currently, two official plugins are available:
+## 🚀 Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Authentification (login/register)
+- Tableau de bord organisateur (statistiques, ventes, progression)
+- Création/édition d'événements (avec upload d'image)
+- Liste des événements, participants, clients
+- Notifications in-app (rappels événements)
+- Responsive et moderne (React Bootstrap)
 
-## Expanding the ESLint configuration
+## ⚙️ Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Cloner le repo**
+
+   ```bash
+   cd EventManager/EventWebApp/EventManager
+   ```
+
+2. **Installer les dépendances**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configurer l'API**
+
+   - L'API doit tourner sur `http://localhost:5000/api` (voir `src/config/Api.jsx`).
+
+4. **Lancer l'application**
+   ```bash
+   npm run dev
+   ```
+   L'application tourne sur [http://localhost:5173](http://localhost:5173)
+
+## 📚 Structure
+
+- `src/screens/` : pages principales (Dashboard, AddEvent, EventList, Profil, etc.)
+- `src/components/` : composants réutilisables (NavBar, LoginForm, RegisterForm, etc.)
+- `src/services/` : appels API (axios)
+- `src/auth/` : gestion du contexte utilisateur et ProtectedRoutes
+- `src/config/` : configuration axios, routes
