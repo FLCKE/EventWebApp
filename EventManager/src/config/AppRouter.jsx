@@ -7,11 +7,12 @@ import ClientList from '../screens/ClientList'
 import EventList from '../screens/EventList'
 import Profil from '../screens/Profil'
 import AddEvent from '../screens/AddEvent'
-
+import ProtectedRoutes from "../auth/ProtectedRoutes"
+import Landing from '../screens/Landing'
 function AppRouter() {
   return (
    <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Landing />} />
 
         <Route
             path="/dashboard"
@@ -23,52 +24,53 @@ function AppRouter() {
         {/* <Route
             path="/dashboard-tenant"
             element={
-                <ProtectedRoute allowedRoles={["locataire"]}>
+                <ProtectedRoutes allowedRoles={["locataire"]}>
                     <DashboardTenant />
-                </ProtectedRoute>
+                </ProtectedRoutes>
             }
         />
         <Route
             path="/payement-tenant"
             element={
-                <ProtectedRoute allowedRoles={["locataire", "proprietaire"]}>
+                <ProtectedRoutes allowedRoles={["locataire", "proprietaire"]}>
                     <Rent />
-                </ProtectedRoute>
+                </ProtectedRoutes>
             }
         />
 
         <Route
             path="/properties"
             element={
-                <ProtectedRoute allowedRoles={["proprietaire"]}>
+                <ProtectedRoutes allowedRoles={["proprietaire"]}>
                     <Properties />
-                </ProtectedRoute>
+                </ProtectedRoutes>
             }
         />
 
         <Route
             path="/leases"
             element={
-                <ProtectedRoute allowedRoles={["proprietaire", "locataire"]}>
+                <ProtectedRoutes allowedRoles={["proprietaire", "locataire"]}>
                     <Leases />
-                </ProtectedRoute>
+                </ProtectedRoutes>
             }
         />
         <Route
             path="/profil"
             element={
-                <ProtectedRoute allowedRoles={["proprietaire", "locataire"]}>
+                <ProtectedRoutes allowedRoles={["proprietaire", "locataire"]}>
                     <Profil />
-                </ProtectedRoute>
+                </ProtectedRoutes>
             }
         /> */}
 
         {/* <Route path="/reset-password/:token" element={<PasswordChanger />} /> */}
         {/* <Route path="/home" element={<Home />} /> */}
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/create-event" element={<AddEvent />} />
-        <Route path="/events" element={<EventList />} />
-        <Route path="/clients" element={<ClientList />} />
+        <Route path="/profil" element={<ProtectedRoutes allowedRoles={["organizer"]}><Profil /></ProtectedRoutes>} />
+        <Route path="/create-event" element={<ProtectedRoutes allowedRoles={["organizer"]}><AddEvent /></ProtectedRoutes>} />
+        <Route path="/edit-event/:id" element={<ProtectedRoutes allowedRoles={["organizer"]}><AddEvent  /></ProtectedRoutes>} />
+        <Route path="/events" element={<ProtectedRoutes allowedRoles={["organizer"]}><EventList /></ProtectedRoutes>} />
+        <Route path="/clients" element={<ProtectedRoutes allowedRoles={["organizer"]}><ClientList /></ProtectedRoutes>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
     </Routes>
