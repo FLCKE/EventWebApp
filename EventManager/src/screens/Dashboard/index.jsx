@@ -31,11 +31,13 @@ function Dashboard() {
   const [statistic, setStatistic] = React.useState({});
   const { user } = useAuth();
 
-  const pourcentage = Math.round((statistic?.lastEventRegistrations / statistic?.lastEvent?.capacity) * 100);
+  const pourcentage = Math.round(
+    (statistic?.lastEventRegistrations / statistic?.lastEvent?.capacity) * 100
+  );
   useEffect(() => {
     // Simuler une récupération de données depuis une API
     // Ici, vous pouvez appeler votre service pour récupérer les statistiques
-    getAllStat(user._id)
+    getAllStat(user?._id)
       .then((response) => {
         console.log("Statistiques récupérées :", response);
         // Mettre à jour l'état avec les données récupérées
@@ -152,7 +154,8 @@ function Dashboard() {
                   {pourcentage}%
                 </div>
                 <p>
-                  {statistic?.lastEventRegistrations} places vendues sur {statistic?.lastEvent?.capacity} disponibles
+                  {statistic?.lastEventRegistrations} places vendues sur{" "}
+                  {statistic?.lastEvent?.capacity} disponibles
                 </p>
                 <div className="my-3">
                   <ProgressBar
@@ -195,7 +198,9 @@ function Dashboard() {
                         <td>{sale.userId?.email}</td>
                         <td>{sale.eventId?.title}</td>
                         <td>{sale.eventId?.price}</td>
-                        <td>{new Date(sale.createdAt).toISOString().slice(0, 10)} </td>
+                        <td>
+                          {new Date(sale.createdAt).toISOString().slice(0, 10)}{" "}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
